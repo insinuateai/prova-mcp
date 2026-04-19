@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "prova": {
+      "command": "prova-mcp",
+      "env": {
+        "PROVA_API_KEY": "sk_live_replace_me",
+        "PROVA_DEFAULT_RETAIN": "false"
+      }
+    }
+  }
+}
