@@ -1,5 +1,10 @@
 # prova-mcp
 
+[![PyPI](https://img.shields.io/pypi/v/prova-mcp.svg)](https://pypi.org/project/prova-mcp/)
+[![Python](https://img.shields.io/pypi/pyversions/prova-mcp.svg)](https://pypi.org/project/prova-mcp/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Docs](https://img.shields.io/badge/docs-prova.cobound.dev-blue.svg)](https://prova.cobound.dev/docs/integrations/mcp)
+
 > Let any AI agent verify its own reasoning before answering — and kernel-check the proof on its own machine.
 
 `prova-mcp` is a [Model Context Protocol](https://modelcontextprotocol.io/) server that exposes the [Prova reasoning verifier](https://prova.cobound.dev) as tools any MCP client can call. Drop it into Claude Code, Cursor, Windsurf, Zed, or ChatGPT desktop and the host model gains a self-verification loop:
@@ -96,6 +101,25 @@ That single line turns Prova into a default reflex for the model — every reaso
 ## Why this exists
 
 Verifiers are only useful if they sit where the reasoning happens. MCP is now the universal bridge between LLM clients and external tools — so shipping Prova as an MCP server makes formal reasoning verification the easiest thing to add to any agent stack on the planet. Install one package, set one key, get a tamper-evident proof of every important argument your agent makes.
+
+---
+
+## Related
+
+- **[Prova](https://prova.cobound.dev)** — the reasoning verifier itself; Lean 4 proofs, certificates, and the public API this server wraps.
+- **[insinuateai/prova-action](https://github.com/insinuateai/prova-action)** — sibling GitHub Action (`uses: insinuateai/prova-action@v1`) that gates CI on reasoning validity.
+- **[Verify independently](https://prova.cobound.dev/docs/verify-independently)** — kernel-check any Prova proof on your own machine in five minutes.
+
+---
+
+## Changelog
+
+### 0.1.0 — first release
+
+- 5 tools: `verify_reasoning`, `get_certificate`, `download_lean_proof`, `kernel_check_proof`, `verify_and_kernel_check`.
+- Resource: `prova://certificate/{id}`.
+- Stdio transport; works with any MCP-compliant client.
+- Configurable via `PROVA_API_KEY`, `PROVA_API_BASE_URL`, `PROVA_LEAN_BIN`, `PROVA_DEFAULT_RETAIN`.
 
 ---
 
